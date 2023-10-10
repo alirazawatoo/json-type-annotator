@@ -24,7 +24,10 @@ def test_max_depth_argument_sits_between_paths(paths):
     assert json.loads(target.read_text()) == {"a": {"b": 2}}
 
 
-@pytest.mark.parametrize("argv", [["only_one"], ["a", "1", "b", "c"], ["in", "x", "out"], ["in", "-1", "out"]])
+@pytest.mark.parametrize(
+    "argv",
+    [["only_one"], ["a", "1", "b", "c"], ["in", "x", "out"], ["in", "-1", "out"]],
+)
 def test_bad_arguments_are_usage_errors(argv, capsys):
     with pytest.raises(SystemExit) as excinfo:
         main(argv)

@@ -54,7 +54,7 @@ Visited dictionaries are rebuilt instead of mutated. Unvisited values and leaf c
 ## Checks and limits
 
 ```sh
-python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements-dev.txt
 python3 -m pytest -q
 ```
 
