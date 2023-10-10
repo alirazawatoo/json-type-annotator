@@ -58,7 +58,7 @@ python3 -m pip install -r requirements-dev.txt
 python3 -m pytest -q
 ```
 
-All 25 tests pass, covering leaf types, depth boundaries, existing CLI behavior, Unicode, non-mutating dictionaries and invalid input preserving an existing output. Runtime uses only the standard library; pytest is a development dependency.
+All 45 tests pass, covering leaf types, depth boundaries, existing CLI behavior, Unicode, non-mutating dictionaries and invalid input preserving an existing output. Runtime uses only the standard library; pytest is a development dependency.
 
 The CLI reports input/read/encoding/transformation failures before opening its output. Nonfinite values such as `NaN` are rejected during serialization. Output is written to a temporary file and renamed into place, so a write failure leaves any previous output intact. The whole JSON document and rendered result live in memory, Python recursion limits apply, and the tool does not stream or validate an application schema.
 
