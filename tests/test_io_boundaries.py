@@ -39,3 +39,16 @@ def test_nonfinite_json_preserves_existing_output(tmp_path):
     with patch("sys.argv", ["substitute.py", str(source), str(target)]):
         assert main() == 1
     assert target.read_text() == "keep"
+
+
+def test_failed_write_keeps_previous_output_and_no_temp_file(tmp_path):
+    source, target = tmp_path / "in.json", tmp_path / "out.json"
+    source.write_text('{"a": 1}')
+    target.write_text("keep")
+    with (
+        patch("sys.argv", ["substitute.py", str(source), str(target)]),
+        patch("os.replace", side_effect=OSError("disk full")),
+    ):
+        assert main() == 1
+    assert target.read_text() == "keep"
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["in.json", "out.json"]
