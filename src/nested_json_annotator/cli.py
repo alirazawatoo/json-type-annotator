@@ -39,8 +39,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="nested-json-annotator",
         description=(
-            'Replace every leaf value of a JSON document with {"_content": value, '
-            '"_type": "<class \'...\'>"}, recursing into nested objects.'
+            "Replace every leaf value of a JSON document with\n"
+            '  {"_content": value, "_type": "<class \'...\'>"}\n'
+            "recursing into nested objects."
         ),
         epilog=EPILOG,
         formatter_class=argparse.RawDescriptionHelpFormatter,
