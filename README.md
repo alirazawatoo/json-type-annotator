@@ -1,6 +1,6 @@
 # Nested JSON annotator
 
-A small Python command-line exercise that adds Python type labels to JSON leaf values. It recursively visits dictionaries; lists remain whole leaf values. The `SuperDuperDB/` package name reflects the original coding-task context, not a database integration.
+A small Python command-line exercise that adds Python type labels to JSON leaf values. It recursively visits dictionaries; lists remain whole leaf values. The code lives in the `nested_json_annotator` package under `src/`.
 
 ## What it produces
 
@@ -24,11 +24,11 @@ Type names are Python representations, not JSON Schema types. `null` becomes `<c
 
 ## Run without dependencies
 
-Use Python 3.11+ from the repository root:
+Use Python 3.12+ from the repository root:
 
 ```sh
-python3 SuperDuperDB/substitute.py SuperDuperDB/input.json /tmp/annotated.json
-python3 SuperDuperDB/substitute.py SuperDuperDB/input.json 1 /tmp/annotated-depth1.json
+PYTHONPATH=src python3 -m nested_json_annotator examples/input.json /tmp/annotated.json
+PYTHONPATH=src python3 -m nested_json_annotator examples/input.json 1 /tmp/annotated-depth1.json
 ```
 
 The positional order remains `input_file [max_depth] output_file`. Omit depth for full dictionary recursion; depth must be a nonnegative integer. The bundled input/output files use fictional sample data.
@@ -42,7 +42,7 @@ The positional order remains `input_file [max_depth] output_file`. Omit depth fo
 ## Python use
 
 ```python
-from SuperDuperDB.substitute import substitute
+from nested_json_annotator import substitute
 
 source = {"metrics": {"count": 3}}
 result = substitute(source)
