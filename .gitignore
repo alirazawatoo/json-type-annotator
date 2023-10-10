@@ -1,0 +1,48 @@
+# Virtual environment
+project_venv/
+venv/
+.venv/
+env/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE / editor
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Scratch notes from AI coding tools
+/instructions.md
+/plan.md
+
+# Test / lint / coverage
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.tox/
+
+# Logs and temp
+*.log
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
